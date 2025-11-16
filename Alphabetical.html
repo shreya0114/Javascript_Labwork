@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabetical Order</title>
+</head>
+<body>
+
+    <h2>Alphabetical Order of Letters</h2>
+
+    <label>Enter a word:</label>
+    <input type="text" id="inputText" placeholder="Enter text">
+    <button onclick="showResult()">Sort</button>
+
+    <p><strong>Output:</strong> <span id="result"></span></p>
+
+    <script>
+        function alphabeticalOrder(str) {
+            return str.split('').sort().join('');
+        }
+
+        function showResult() {
+            let text = document.getElementById("inputText").value;
+            document.getElementById("result").innerText = alphabeticalOrder(text);
+        }
+    </script>
+
+</body>
+</html>
