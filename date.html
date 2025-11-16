@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Current Date Formats</h3>
+
+<button onclick="showDate()">Show Date</button>
+<p id="out"></p>
+
+<script>
+function showDate() {
+    let d = new Date();
+    let dd = String(d.getDate()).padStart(2, '0');
+    let mm = String(d.getMonth() + 1).padStart(2, '0');
+    let yyyy = d.getFullYear();
+
+    let monthName = d.toLocaleString('default', {month: 'long'});
+    let dayName = d.toLocaleString('default', {weekday: 'long'});
+
+    out.innerHTML =
+        mm + "-" + dd + "-" + yyyy + "<br>" +
+        mm + "/" + dd + "/" + yyyy + "<br>" +
+        dd + "-" + mm + "-" + yyyy + "<br>" +
+        dd + "/" + mm + "/" + yyyy + "<br>" +
+        `${yyyy} ${monthName} ${dd} ${dayName}`;
+}
+</script>
+
+</body>
+</html>
