@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Choices</title>
+</head>
+<body>
+
+<h2>Color Choices Output</h2>
+
+<p id="result"></p>
+
+<script>
+function displayColors() {
+    let colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+    let suffix = ["th", "st", "nd", "rd"];
+
+    let output = "";
+
+    for (let i = 0; i < colors.length; i++) {
+        let pos = i + 1;
+        
+        let suf = (pos === 1) ? suffix[1] :
+                  (pos === 2) ? suffix[2] :
+                  (pos === 3) ? suffix[3] :
+                  suffix[0];
+
+        output += `${pos}${suf} choice is ${colors[i]}.<br>`;
+    }
+
+    document.getElementById("result").innerHTML = output;
+}
+
+displayColors();
+</script>
+
+</body>
+</html>
