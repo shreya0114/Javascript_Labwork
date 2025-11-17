@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Smallest Number</title>
+</head>
+<body>
+
+<h2>Enter Numbers to Find the Smallest</h2>
+
+<label>Enter how many numbers: </label>
+<input type="number" id="count"><br><br>
+
+<button onclick="acceptNumbers()">Submit</button>
+
+<p id="result"></p>
+
+<script>
+function acceptNumbers() {
+    let n = parseInt(document.getElementById("count").value);
+    let arr = [];
+
+    for (let i = 0; i < n; i++) {
+        let num = parseInt(prompt("Enter number " + (i + 1) + ":"));
+        arr.push(num);
+    }
+
+    let smallest = arr[0];
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < smallest) {
+            smallest = arr[i];
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+        "Smallest number is: <b>" + smallest + "</b>";
+}
+</script>
+
+</body>
+</html>
