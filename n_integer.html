@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Largest Number</title>
+</head>
+<body>
+
+<h2>Enter integers separated by commas</h2>
+
+<input type="text" id="nums" placeholder="Example: 5, 12, 9, 30, 2" style="width:250px;">
+<br><br>
+
+<button onclick="findLargest()">Find Largest</button>
+
+<h3 id="result"></h3>
+
+<script>
+function findLargest() {
+
+    let input = document.getElementById("nums").value;
+
+    let arr = input.split(",").map(Number);
+
+    if (arr.some(isNaN)) {
+        document.getElementById("result").innerHTML = "❗ Please enter valid integers.";
+        return;
+    }
+
+    let largest = Math.max(...arr);
+
+    document.getElementById("result").innerHTML = "Largest number: " + largest;
+}
+</script>
+
+</body>
+</html>
