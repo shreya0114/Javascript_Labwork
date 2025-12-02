@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class="wrapper">
+ <h1>Asabeneh Yetayeh challenges in 2020</h1>
+ <h2>30DaysOfJavaScript Challenge</h2>
+ <h3 id="date"></h3>
+
+ <ul>
+ <li>Python Challenge Done</li>
+ <li>JavaScript Challenge Ongoing</li>
+ <li>React Challenge Coming</li>
+ <li>FullStack Challenge Coming</li>
+ <li>DataAnalysis Challenge Coming</li>
+ <li>ReactNative Challenge Coming</li>
+ <li>MachineLearning Challenge Coming</li>
+ </ul>
+</div>
+
+<script>
+let h1 = document.querySelector("h1");
+
+setInterval(() => {
+    h1.style.color = "#" + Math.floor(Math.random()*16777215).toString(16);
+}, 1000);
+
+let dateBox = document.getElementById("date");
+
+setInterval(() => {
+    dateBox.textContent = new Date().toLocaleString();
+    dateBox.style.background = "#" + Math.floor(Math.random()*16777215).toString(16);
+    dateBox.style.padding = "10px";
+    dateBox.style.display = "inline-block";
+}, 1000);
+
+let items = document.querySelectorAll("li");
+
+items.forEach(li => {
+    if (li.textContent.includes("Done")) li.style.background = "green";
+    else if (li.textContent.includes("Ongoing")) li.style.background = "blue";
+    else li.style.background = "red";
+
+    li.style.margin = "5px";
+    li.style.padding = "8px";
+    li.style.listStyle = "none";
+    li.style.color = "white";
+    li.style.width = "250px";
+});
+</script>
+
+</body>
+</html>

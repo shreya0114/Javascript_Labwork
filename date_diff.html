@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+    function getDateDifferenceInDays(date1, date2) {
+        const oneDay = 1000 * 60 * 60 * 24;
+        const diffInMs = Math.abs(new Date(date2) - new Date(date1));
+        return Math.floor(diffInMs / oneDay);
+    }
+
+    let d1 = prompt("Enter first date (yyyy-mm-dd):");
+    let d2 = prompt("Enter second date (yyyy-mm-dd):");
+
+    let diff = getDateDifferenceInDays(d1, d2);
+
+    alert("Difference between the two dates is: " + diff + " days");
+</script>
+
+</body>
+</html>

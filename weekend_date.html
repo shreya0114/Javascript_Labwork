@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="showWeekend()">Get Weekend Date</button>
+<p id="out"></p>
+
+<script>
+function getWeekendDate() {
+    const today = new Date();
+    const day = today.getDay(); 
+    const daysToSat = (6 - day + 7) % 7;
+
+    const weekend = new Date();
+    weekend.setDate(today.getDate() + daysToSat);
+    return weekend;
+}
+
+function showWeekend() {
+    const weekend = getWeekendDate();
+    document.getElementById("out").innerHTML =
+        "Weekend Date (Saturday): " + weekend.toDateString();
+}
+</script>
+
+</body>
+</html>
+

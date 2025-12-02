@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter App</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 40px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #2d6a4f;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 20px;
+            margin: 5px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 60px;
+        }
+
+        #display {
+            background-color: #f8d7da;
+            padding: 12px;
+            width: 60px;
+            display: inline-block;
+            border-radius: 8px;
+            font-size: 20px;
+            margin: 5px;
+        }
+
+        .reset {
+            background-color: #2d6a4f;
+            padding: 10px 20px;
+            margin-top: 15px;
+            font-size: 18px;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Counter App</h2>
+
+    <button class="btn" onclick="increment()">+</button>
+
+    <span id="display">0</span>
+
+    <button class="btn" onclick="decrement()">-</button>
+
+    <br>
+
+    <button class="reset" onclick="resetCounter()">Reset</button>
+
+    <script>
+        let count = 0;
+
+        function increment() {
+            count++;
+            document.getElementById("display").innerText = count;
+        }
+
+        function decrement() {
+            count--;
+            document.getElementById("display").innerText = count;
+        }
+
+        function resetCounter() {
+            count = 0;
+            document.getElementById("display").innerText = count;
+        }
+    </script>
+
+</body>
+</html>
