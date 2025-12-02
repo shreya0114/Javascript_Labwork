@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        button{padding:10px;margin:5px;color:#fff;border:0;cursor:pointer}
+        #p1{font-size:12pt;padding:10px;background:#ddd}
+    </style>
+</head>
+<body>
+
+<p id="p1">This is a sample paragraph.</p>
+
+<button style="background:steelblue" onclick="bodyBg()">Change Background</button>
+<button style="background:goldenrod" onclick="paraBg()">Paragraph BG</button>
+<button style="background:orange" onclick="p1.style.display='none'">Hide</button>
+<button style="background:green" onclick="p1.style.display='block'">Show</button>
+<button style="background:purple" onclick="changeSize(2)">+2pt</button>
+<button style="background:darkgreen" onclick="changeSize(-2)">-2pt</button>
+<button style="background:red" onclick="p1.style.fontSize='12pt'">Reset</button>
+<button style="background:navy" onclick="textColor()">Text Color</button>
+
+<script>
+let p1 = document.getElementById("p1");
+
+function bodyBg(){
+    document.body.style.background =
+        document.body.style.background=="lightyellow"?"white":"lightyellow";
+}
+
+function paraBg(){
+    p1.style.background = p1.style.background=="pink"?"#ddd":"pink";
+}
+
+function changeSize(val){
+    p1.style.fontSize = (parseInt(getComputedStyle(p1).fontSize)+val)+"pt";
+}
+
+function textColor(){
+    p1.style.color = p1.style.color=="blue"?"black":"blue";
+}
+</script>
+
+</body>
+</html>
