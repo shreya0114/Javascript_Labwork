@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cookie Manager</title>
+<style>
+    body{font-family:Arial;padding:20px;}
+    input{padding:6px;margin:5px;}
+    button{padding:7px 12px;margin:5px;}
+    table{border-collapse:collapse;margin-top:15px;}
+    th,td{border:1px solid #999;padding:6px 10px;}
+</style>
+</head>
+
+<body>
+
+<h2>Cookie Manager</h2>
+
+<!-- Inputs -->
+Key: <input id="key"><br>
+Value: <input id="value"><br>
+
+<!-- Buttons -->
+<button onclick="addCookie()">Add Cookie</button>
+<button onclick="readCookie()">Read Cookie</button>
+<button onclick="showCookies()">Show All Cookies</button>
+<button onclick="deleteCookie()">Delete Cookie</button>
+<button onclick="deleteAllCookies()">Delete All Cookies</button>
+
+<!-- Output -->
+<p id="output"></p>
+<div id="table"></div>
+
+
+<script>
+
+// a. Add cookie
+function addCookie() {
+    let k = key.value.trim();
+    let v = value.value.trim();
+    if (!k || !v) {
+        output.innerHTML = "Key and Value required!";
+        return;
+    }
+    document.cookie = `${k}=${v}; path=/;`;
+    output.innerHTML = `Cookie Added → ${k} = ${v}`;
+}
+
+
+// b. Read cookie by key
+function readCookie() {
+    let k = key.value.trim();
+    if (!k) {
+        output.innerHTML = "Enter a key to search!";
+        return;
+    }
+
+    let cookies = document.cookie.split("; ");
+
+    for (let c of cookies) {
+        let [ckey, cval] = c.split("=");
+        if (ckey === k) {
+            output.innerHTML = `Cookie Found → ${ckey} = ${cval}`;
+            return;
+        }
+    }
+    output.innerHTML = "Cookie not found.";
+}
+
+
+// c. Display all cookies in table
+function showCookies() {
+    let cookies = document.cookie.split("; ");
+    let html = "<table><tr><th>Key</th><th>Value</th></tr>";
+
+    cookies.forEach(c => {
+        let [k, v] = c.split("=");
+        if(k)
+            html += `<tr><td>${k}</td><td>${v}</td></tr>`;
+    });
+
+    html += "</table>";
+    document.getElementById("table").innerHTML = html;
+}
+
+
+// d. Delete cookie by key
+function deleteCookie() {
+    let k = key.value.trim();
+    if (!k) {
+        output.innerHTML = "Enter a key to delete!";
+        return;
+    }
+
+    document.cookie = `${k}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    output.innerHTML = `Cookie '${k}' deleted.`;
+}
+
+
+// e. Delete all cookies
+function deleteAllCookies() {
+    let cookies = document.cookie.split("; ");
+
+    cookies.forEach(c => {
+        let cname = c.split("=")[0];
+        document.cookie = `${cname}=; expires=Thu, 01 Jan 1970; path=/;`;
+    });
+
+    output.innerHTML = "All cookies deleted.";
+    table.innerHTML = "";
+}
+
+</script>
+
+</body>
+</html>
