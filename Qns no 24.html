@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="showDog()">Show Dog Info</button>
+<p id="out"></p>
+
+<script>
+let dog = {
+    name: "Buddy",
+    legs: 4,
+    color: "Brown",
+    age: 3,
+    bark() { return "Woof Woof"; },
+    breed: "Golden Retriever",
+    getDogInfo() { return `${this.name} is a ${this.age}-year-old ${this.color} ${this.breed} with ${this.legs} legs.`; }
+};
+
+function showDog() {
+    document.getElementById("out").innerHTML =
+        `Name: ${dog.name}<br>Legs: ${dog.legs}<br>Color: ${dog.color}<br>Age: ${dog.age}<br>
+        Bark: ${dog.bark()}<br>Breed: ${dog.breed}<br>Info: ${dog.getDogInfo()}`;
+}
+</script>
+
+</body>
+</html>

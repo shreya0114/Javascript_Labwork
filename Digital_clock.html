@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Clock</title>
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(45deg, #a700ff, #ff00aa);
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+    }
+
+    .container{
+        text-align: center;
+    }
+
+    h1{
+        font-size: 40px;
+        margin-bottom: 30px;
+        font-weight: bold;
+        letter-spacing: 3px;
+    }
+
+    .clock{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+ .box{
+        background: white;
+        color: black;
+        width: 120px;
+        height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 60px;
+        border-radius: 12px;
+        font-weight: bold;
+    }
+
+    .colon{
+        font-size: 60px;
+        margin: 0 10px;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>DIGITAL CLOCK</h1>
+
+    <div class="clock">
+        <div class="box" id="hours">00</div>
+        <div class="colon">:</div>
+        <div class="box" id="minutes">00</div>
+        <div class="colon">:</div>
+        <div class="box" id="seconds">00</div>
+    </div>
+</div>
+
+<script>
+function updateClock() {
+    let now = new Date();
+let h = now.getHours().toString().padStart(2, '0');
+    let m = now.getMinutes().toString().padStart(2, '0');
+    let s = now.getSeconds().toString().padStart(2, '0');
+
+    document.getElementById("hours").innerHTML = h;
+    document.getElementById("minutes").innerHTML = m;
+    document.getElementById("seconds").innerHTML = s;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>

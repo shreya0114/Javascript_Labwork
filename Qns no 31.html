@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Highlighter</title>
+    <style>
+        .even {
+            background-color: lightblue;
+            padding: 6px;
+            margin: 4px;
+            display: inline-block;
+            width: 45px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .odd {
+            background-color: lightgreen;
+            padding: 6px;
+            margin: 4px;
+            display: inline-block;
+            width: 45px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .prime {
+            background-color: tomato;
+            color: white;
+            padding: 6px;
+            margin: 4px;
+            display: inline-block;
+            width: 45px;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Generate Numbers</h2>
+
+<input type="number" id="userNumber" placeholder="Enter a number" />
+<button onclick="generateNumbers()">Generate</button>
+
+<div id="result" style="margin-top:20px;"></div>
+
+<script>
+    function isPrime(num) {
+        if (num < 2) return false;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) return false;
+        }
+        return true;
+    }
+
+    function generateNumbers() {
+        const n = parseInt(document.getElementById("userNumber").value);
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = "";
+
+        if (isNaN(n) || n < 1) {
+            resultDiv.innerHTML = "<p>Please enter a number greater than 0.</p>";
+            return;
+        }
+
+        for (let i = 1; i <= n; i++) {
+            let span = document.createElement("span");
+
+            if (isPrime(i)) {
+                span.className = "prime";
+            } else if (i % 2 === 0) {
+                span.className = "even";
+            } else {
+                span.className = "odd";
+            }
+
+            span.textContent = i;
+            resultDiv.appendChild(span);
+        }
+    }
+</script>
+
+</body>
+</html>
